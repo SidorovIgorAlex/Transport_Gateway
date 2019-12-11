@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://mfms.ru/mfmsgate/pushdev"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://mfms.ru/mfmsgate/pushdev">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import schemaLocation="PushDeviceService.xsd" namespace="http://mfms.ru/mfmsgate/pushdev"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="GetDevicesRequest">
+        <wsdl:part element="tns:GetDevicesRequest" name="GetDevicesRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetDevicesResponse">
+        <wsdl:part element="tns:GetDevicesResponse" name="GetDevicesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SetDeviceRequest">
+        <wsdl:part element="tns:SetDeviceRequest" name="SetDeviceRequest"/>
+    </wsdl:message>
+    <wsdl:message name="SetDeviceResponse">
+        <wsdl:part element="tns:SetDeviceResponse" name="SetDeviceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SetPhoneRequest">
+        <wsdl:part element="tns:SetPhoneRequest" name="SetPhoneRequest"/>
+    </wsdl:message>
+    <wsdl:message name="SetPhoneResponse">
+        <wsdl:part element="tns:SetPhoneResponse" name="SetPhoneResponse"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateSecurityTokenRequest">
+        <wsdl:part element="tns:UpdateSecurityTokenRequest" name="UpdateSecurityTokenRequest"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateSecurityTokenResponse">
+        <wsdl:part element="tns:UpdateSecurityTokenResponse" name="UpdateSecurityTokenResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SendPushSmsRequest">
+        <wsdl:part element="tns:SendPushSmsRequest" name="SendPushSmsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="SendPushSmsResponse">
+        <wsdl:part element="tns:SendPushSmsResponse" name="SendPushSmsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SetPushServiceStateRequest">
+        <wsdl:part element="tns:SetPushServiceStateRequest" name="SetPushServiceStateRequest"/>
+    </wsdl:message>
+    <wsdl:message name="SetPushServiceStateResponse">
+        <wsdl:part element="tns:SetPushServiceStateResponse" name="SetPushServiceStateResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetDeviceSubscriptionsRequest">
+        <wsdl:part element="tns:GetDeviceSubscriptionsRequest" name="GetDeviceSubscriptionsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetDeviceSubscriptionsResponse">
+        <wsdl:part element="tns:GetDeviceSubscriptionsResponse" name="GetDeviceSubscriptionsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="SetDeviceSubscriptionsRequest">
+        <wsdl:part element="tns:SetDeviceSubscriptionsRequest" name="SetDeviceSubscriptionsRequest"/>
+    </wsdl:message>
+    <wsdl:message name="SetDeviceSubscriptionsResponse">
+        <wsdl:part element="tns:SetDeviceSubscriptionsResponse" name="SetDeviceSubscriptionsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="GetVersionRequest">
+        <wsdl:part element="tns:GetVersionRequest" name="GetVersionRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetVersionResponse">
+        <wsdl:part element="tns:GetVersionResponse" name="GetVersionResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="SystemFault">
+        <wsdl:part element="tns:SystemFault" name="SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="InvalidDeviceTokenFault">
+        <wsdl:part element="tns:InvalidDeviceTokenFault" name="InvalidDeviceTokenFault"/>
+    </wsdl:message>
+    <wsdl:message name="InvalidPhoneNumberFault">
+        <wsdl:part element="tns:InvalidPhoneNumberFault" name="InvalidPhoneNumberFault"/>
+    </wsdl:message>
+    <wsdl:message name="ClientNotFoundFault">
+        <wsdl:part element="tns:ClientNotFoundFault" name="ClientNotFoundFault"/>
+    </wsdl:message>
+    <wsdl:message name="ClientNotRegisteredFault">
+        <wsdl:part element="tns:ClientNotRegisteredFault" name="ClientNotRegisteredFault"/>
+    </wsdl:message>
+    <wsdl:message name="DuplicateCrossReferenceFault">
+        <wsdl:part element="tns:DuplicateCrossReferenceFault" name="DuplicateCrossReferenceFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoActiveDevicesFault">
+        <wsdl:part element="tns:NoActiveDevicesFault" name="NoActiveDevicesFault"/>
+    </wsdl:message>
+    <wsdl:message name="DeviceNotRegisteredFault">
+        <wsdl:part element="tns:DeviceNotRegisteredFault" name="DeviceNotRegisteredFault"/>
+    </wsdl:message>
+    <wsdl:message name="USBSClientFault">
+        <wsdl:part element="tns:USBSClientFault" name="USBSClientFault"/>
+    </wsdl:message>
+    <wsdl:message name="IntegrationTimeoutFault">
+        <wsdl:part element="tns:IntegrationTimeoutFault" name="IntegrationTimeoutFault"/>
+    </wsdl:message>
+
+    <wsdl:portType name="PushDevicePort">
+        <wsdl:operation name="GetDevices">
+            <wsdl:input name="GetDevicesRequest" message="tns:GetDevicesRequest"/>
+            <wsdl:output name="GetDevicesResponse" message="tns:GetDevicesResponse"/>
+            <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+            <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+            <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+            <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetDevice">
+            <wsdl:input name="SetDeviceRequest" message="tns:SetDeviceRequest"/>
+            <wsdl:output name="SetDeviceResponse" message="tns:SetDeviceResponse"/>
+            <wsdl:fault name="InvalidDeviceTokenFault" message="tns:InvalidDeviceTokenFault"/>
+            <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+            <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+            <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+            <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetPhone">
+            <wsdl:input name="SetPhoneRequest" message="tns:SetPhoneRequest"/>
+            <wsdl:output name="SetPhoneResponse" message="tns:SetPhoneResponse"/>
+            <wsdl:fault name="InvalidPhoneNumberFault" message="tns:InvalidPhoneNumberFault"/>
+            <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+            <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+            <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+            <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateSecurityToken">
+            <wsdl:input name="UpdateSecurityTokenRequest" message="tns:UpdateSecurityTokenRequest"/>
+            <wsdl:output name="UpdateSecurityTokenResponse" message="tns:UpdateSecurityTokenResponse"/>
+            <wsdl:fault name="InvalidDeviceTokenFault" message="tns:InvalidDeviceTokenFault"/>
+            <wsdl:fault name="DeviceNotRegisteredFault" message="tns:DeviceNotRegisteredFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendPushSms">
+            <wsdl:input name="SendPushSmsRequest" message="tns:SendPushSmsRequest"/>
+            <wsdl:output name="SendPushSmsResponse" message="tns:SendPushSmsResponse"/>
+            <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+            <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+            <wsdl:fault name="NoActiveDevicesFault" message="tns:NoActiveDevicesFault"/>
+            <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+            <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeviceSubscriptions">
+            <wsdl:input name="GetDeviceSubscriptionsRequest" message="tns:GetDeviceSubscriptionsRequest" />
+            <wsdl:output name="GetDeviceSubscriptionsResponse" message="tns:GetDeviceSubscriptionsResponse" />
+            <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+            <wsdl:fault name="DeviceNotRegisteredFault" message="tns:DeviceNotRegisteredFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetDeviceSubscriptions">
+            <wsdl:input name="SetDeviceSubscriptionsRequest" message="tns:SetDeviceSubscriptionsRequest" />
+            <wsdl:output name="SetDeviceSubscriptionsResponse" message="tns:SetDeviceSubscriptionsResponse" />
+            <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+            <wsdl:fault name="DeviceNotRegisteredFault" message="tns:DeviceNotRegisteredFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="SetPushServiceState">
+            <wsdl:input name="SetPushServiceStateRequest" message="tns:SetPushServiceStateRequest" />
+            <wsdl:output name="SetPushServiceStateResponse" message="tns:SetPushServiceStateResponse" />
+            <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+            <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetVersion">
+            <wsdl:input name="GetVersionRequest" message="tns:GetVersionRequest"/>
+            <wsdl:output name="GetVersionResponse" message="tns:GetVersionResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="PushDevicePortSoap11" type="tns:PushDevicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetDevices">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetDevicesRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetDevicesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ClientNotFoundFault">
+                <soap:fault use="literal" name="ClientNotFoundFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="ClientNotRegisteredFault">
+                <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="USBSClientFault">
+                <soap:fault use="literal" name="USBSClientFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="IntegrationTimeoutFault">
+                <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="SetDevice">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="SetDeviceRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SetDeviceResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="InvalidDeviceTokenFault">
+                <soap:fault use="literal" name="InvalidDeviceTokenFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="ClientNotFoundFault">
+                <soap:fault use="literal" name="ClientNotFoundFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="ClientNotRegisteredFault">
+                <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="USBSClientFault">
+                <soap:fault use="literal" name="USBSClientFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="IntegrationTimeoutFault">
+                <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="SetPhone">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="SetPhoneRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SetPhoneResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="InvalidPhoneNumberFault">
+                <soap:fault use="literal" name="InvalidPhoneNumberFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="ClientNotFoundFault">
+                <soap:fault use="literal" name="ClientNotFoundFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="ClientNotRegisteredFault">
+                <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="USBSClientFault">
+                <soap:fault use="literal" name="USBSClientFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="IntegrationTimeoutFault">
+                <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateSecurityToken">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="UpdateSecurityTokenRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="UpdateSecurityTokenResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="InvalidDeviceTokenFault">
+                <soap:fault use="literal" name="InvalidDeviceTokenFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="DeviceNotRegisteredFault">
+                <soap:fault use="literal" name="DeviceNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="SendPushSms">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="SendPushSmsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SendPushSmsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ClientNotFoundFault">
+                <soap:fault use="literal" name="ClientNotFoundFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="ClientNotRegisteredFault">
+                <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="NoActiveDevicesFault">
+                <soap:fault use="literal" name="NoActiveDevicesFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="USBSClientFault">
+                <soap:fault use="literal" name="USBSClientFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="IntegrationTimeoutFault">
+                <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetDeviceSubscriptions">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetDeviceSubscriptionsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetDeviceSubscriptionsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ClientNotRegisteredFault">
+                <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="DeviceNotRegisteredFault">
+                <soap:fault use="literal" name="DeviceNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="SetDeviceSubscriptions">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="SetDeviceSubscriptionsRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SetDeviceSubscriptionsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ClientNotRegisteredFault">
+                <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="DeviceNotRegisteredFault">
+                <soap:fault use="literal" name="DeviceNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="SetPushServiceState">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="SetPushServiceStateRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SetPushServiceStateResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ClientNotRegisteredFault">
+                <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFault">
+                <soap:fault use="literal" name="SystemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetVersion">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetVersionRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetVersionResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="PushDeviceService">
+        <wsdl:port binding="tns:PushDevicePortSoap11" name="PushDevicePortSoap11">
+            <soap:address location="http://127.0.0.1:8707/services/PushDeviceService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

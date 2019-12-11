@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:pds="http://mfms.ru/mfmsgate/pushdev"
+            targetNamespace="http://mfms.ru/mfmsgate/pushdev"
+            elementFormDefault="qualified">
+
+    <complexType name="DeviceInfo">
+        <sequence>
+            <element name="deviceName" type="xsd:string"/>
+            <element name="deviceUID" type="xsd:string"/>
+            <element name="deviceToken" type="xsd:string"/>
+            <element name="isPushActive" type="xsd:boolean"/>
+            <element name="isMain" type="xsd:boolean" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <element name="GetDevicesRequest">
+        <complexType>
+            <sequence>
+                <element name="correlationId" type="xsd:string"/>
+                <element name="systemId" type="xsd:string"/>
+                <element name="clientId" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="GetDevicesResponse">
+        <complexType>
+            <sequence>
+                <element name="devices" type="pds:DeviceInfo" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="SetDeviceRequest">
+        <complexType>
+            <sequence>
+                <element name="correlationId" type="xsd:string"/>
+                <element name="systemId" type="xsd:string"/>
+                <element name="clientId" type="xsd:string"/>
+                <element name="device" type="pds:DeviceInfo"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="SetDeviceResponse">
+        <complexType>
+            <sequence>
+                <element name="devices" type="pds:DeviceInfo" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="SetPhoneRequest">
+        <complexType>
+            <sequence>
+                <element name="correlationId" type="xsd:string"/>
+                <element name="systemId" type="xsd:string"/>
+                <element name="clientId" type="xsd:string"/>
+                <element name="phoneNumber" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="SetPhoneResponse"/>
+
+    <element name="UpdateSecurityTokenRequest">
+        <complexType>
+            <sequence>
+                <element name="correlationId" type="xsd:string"/>
+                <element name="deviceUID" type="xsd:string"/>
+                <element name="deviceToken" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="UpdateSecurityTokenResponse"/>
+
+    <element name="SendPushSmsRequest">
+        <complexType>
+            <sequence>
+                <element name="correlationId" type="xsd:string"/>
+                <element name="systemId" type="xsd:string"/>
+                <element name="clientId" type="xsd:string"/>
+                <element name="text" type="xsd:string"/>
+                <element name="messageType" type="xsd:string" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="SendPushSmsResponse"/>
+
+    <element name="GetVersionRequest"/>
+    <element name="GetVersionResponse">
+        <complexType>
+            <sequence>
+                <element name="version" type="xsd:string"/>
+            </sequence>
+        </complexType>
+    </element>
+
+            <element name="SetPushServiceStateRequest">
+                <complexType>
+                    <sequence>
+                        <element name="correlationId" type="xsd:string" />
+                        <element name="systemId" type="xsd:string" />
+                        <element name="clientId" type="xsd:string" />
+                        <element name="isPushEnabled" type="xsd:boolean" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="SetPushServiceStateResponse"/>
+
+            <element name="GetDeviceSubscriptionsRequest">
+                <complexType>
+                    <sequence>
+                        <element name="correlationId" type="xsd:string" />
+                        <element name="systemId" type="xsd:string" />
+                        <element name="clientId" type="xsd:string" />
+                        <element name="deviceUID" type="xsd:string" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="GetDeviceSubscriptionsResponse">
+                <complexType>
+                    <sequence>
+						<!-- список типов сообщений, на которые подписан пользователь -->
+                        <element name="messageTypeCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="SetDeviceSubscriptionsRequest">
+                <complexType>
+                    <sequence>
+                        <element name="correlationId" type="xsd:string" />
+                        <element name="systemId" type="xsd:string" />
+                        <element name="clientId" type="xsd:string" />
+                        <element name="deviceUID" type="xsd:string" />
+                        <!-- список типов сообщений, на которые подписан пользователь -->
+                        <element name="messageTypeCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="SetDeviceSubscriptionsResponse"/>
+
+    <element name="SystemFault" type="pds:SystemFaultType"/>
+    <complexType name="SystemFaultType">
+        <sequence>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="InvalidDeviceTokenFault" type="pds:InvalidDeviceTokenFaultType"/>
+    <complexType name="InvalidDeviceTokenFaultType">
+        <sequence>
+            <element name="systemId" type="xsd:string"/>
+            <element name="clientId" type="xsd:string"/>
+            <element name="token" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="InvalidPhoneNumberFault" type="pds:InvalidPhoneNumberFaultType"/>
+    <complexType name="InvalidPhoneNumberFaultType">
+        <sequence>
+            <element name="systemId" type="xsd:string"/>
+            <element name="clientId" type="xsd:string"/>
+            <element name="phoneNumber" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="ClientNotFoundFault" type="pds:ClientNotFoundFaultType"/>
+    <complexType name="ClientNotFoundFaultType">
+        <sequence>
+            <element name="systemId" type="xsd:string"/>
+            <element name="clientId" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="ClientNotRegisteredFault" type="pds:ClientNotRegisteredFaultType"/>
+    <complexType name="ClientNotRegisteredFaultType">
+        <sequence>
+            <element name="systemId" type="xsd:string"/>
+            <element name="clientId" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="DuplicateCrossReferenceFault" type="pds:DuplicateCrossReferenceFaultType"/>
+    <complexType name="DuplicateCrossReferenceFaultType">
+        <sequence>
+            <element name="systemId" type="xsd:string"/>
+            <element name="clientId" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="NoActiveDevicesFault" type="pds:NoActiveDevicesFaultType"/>
+    <complexType name="NoActiveDevicesFaultType">
+        <sequence>
+            <element name="systemId" type="xsd:string"/>
+            <element name="clientId" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="DeviceNotRegisteredFault" type="pds:DeviceNotRegisteredFaultType"/>
+    <complexType name="DeviceNotRegisteredFaultType">
+        <sequence>
+            <element name="deviceUID" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="USBSClientFault" type="pds:USBSClientFaultType"/>
+    <complexType name="USBSClientFaultType">
+        <sequence>
+            <element name="systemId" type="xsd:string"/>
+            <element name="clientId" type="xsd:string"/>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+    <element name="IntegrationTimeoutFault" type="pds:IntegrationTimeoutFaultType"/>
+    <complexType name="IntegrationTimeoutFaultType">
+        <sequence>
+            <element name="message" type="xsd:string"/>
+        </sequence>
+    </complexType>
+
+</xsd:schema>

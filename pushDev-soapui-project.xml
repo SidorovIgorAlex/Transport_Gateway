@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="98db393e-76ad-4ecd-ace3-1254af0899bc" activeEnvironment="Default" name="pushDev" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4e1af399-537c-423b-8a18-8d4feab1fd8d" wsaVersion="NONE" name="PushDevicePortSoap11" type="wsdl" bindingName="{http://mfms.ru/mfmsgate/pushdev}PushDevicePortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/Users/aplana/Documents/1.%20idea-workspace/spring_soap_stub/PushServiceStub/src/main/resources/PushDeviceService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/aplana/Documents/1.%20idea-workspace/spring_soap_stub/PushServiceStub/src/main/resources/PushDeviceService.wsdl"><con:part><con:url>file:/Users/aplana/Documents/1.%20idea-workspace/spring_soap_stub/PushServiceStub/src/main/resources/PushDeviceService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://mfms.ru/mfmsgate/pushdev" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mfms.ru/mfmsgate/pushdev" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import schemaLocation="PushDeviceService.xsd" namespace="http://mfms.ru/mfmsgate/pushdev"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDevicesRequest">
+    <wsdl:part element="tns:GetDevicesRequest" name="GetDevicesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetDevicesResponse">
+    <wsdl:part element="tns:GetDevicesResponse" name="GetDevicesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetDeviceRequest">
+    <wsdl:part element="tns:SetDeviceRequest" name="SetDeviceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SetDeviceResponse">
+    <wsdl:part element="tns:SetDeviceResponse" name="SetDeviceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetPhoneRequest">
+    <wsdl:part element="tns:SetPhoneRequest" name="SetPhoneRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SetPhoneResponse">
+    <wsdl:part element="tns:SetPhoneResponse" name="SetPhoneResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateSecurityTokenRequest">
+    <wsdl:part element="tns:UpdateSecurityTokenRequest" name="UpdateSecurityTokenRequest"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateSecurityTokenResponse">
+    <wsdl:part element="tns:UpdateSecurityTokenResponse" name="UpdateSecurityTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SendPushSmsRequest">
+    <wsdl:part element="tns:SendPushSmsRequest" name="SendPushSmsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SendPushSmsResponse">
+    <wsdl:part element="tns:SendPushSmsResponse" name="SendPushSmsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetPushServiceStateRequest">
+    <wsdl:part element="tns:SetPushServiceStateRequest" name="SetPushServiceStateRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SetPushServiceStateResponse">
+    <wsdl:part element="tns:SetPushServiceStateResponse" name="SetPushServiceStateResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceSubscriptionsRequest">
+    <wsdl:part element="tns:GetDeviceSubscriptionsRequest" name="GetDeviceSubscriptionsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetDeviceSubscriptionsResponse">
+    <wsdl:part element="tns:GetDeviceSubscriptionsResponse" name="GetDeviceSubscriptionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetDeviceSubscriptionsRequest">
+    <wsdl:part element="tns:SetDeviceSubscriptionsRequest" name="SetDeviceSubscriptionsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SetDeviceSubscriptionsResponse">
+    <wsdl:part element="tns:SetDeviceSubscriptionsResponse" name="SetDeviceSubscriptionsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetVersionRequest">
+    <wsdl:part element="tns:GetVersionRequest" name="GetVersionRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetVersionResponse">
+    <wsdl:part element="tns:GetVersionResponse" name="GetVersionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SystemFault">
+    <wsdl:part element="tns:SystemFault" name="SystemFault"/>
+  </wsdl:message>
+  <wsdl:message name="InvalidDeviceTokenFault">
+    <wsdl:part element="tns:InvalidDeviceTokenFault" name="InvalidDeviceTokenFault"/>
+  </wsdl:message>
+  <wsdl:message name="InvalidPhoneNumberFault">
+    <wsdl:part element="tns:InvalidPhoneNumberFault" name="InvalidPhoneNumberFault"/>
+  </wsdl:message>
+  <wsdl:message name="ClientNotFoundFault">
+    <wsdl:part element="tns:ClientNotFoundFault" name="ClientNotFoundFault"/>
+  </wsdl:message>
+  <wsdl:message name="ClientNotRegisteredFault">
+    <wsdl:part element="tns:ClientNotRegisteredFault" name="ClientNotRegisteredFault"/>
+  </wsdl:message>
+  <wsdl:message name="DuplicateCrossReferenceFault">
+    <wsdl:part element="tns:DuplicateCrossReferenceFault" name="DuplicateCrossReferenceFault"/>
+  </wsdl:message>
+  <wsdl:message name="NoActiveDevicesFault">
+    <wsdl:part element="tns:NoActiveDevicesFault" name="NoActiveDevicesFault"/>
+  </wsdl:message>
+  <wsdl:message name="DeviceNotRegisteredFault">
+    <wsdl:part element="tns:DeviceNotRegisteredFault" name="DeviceNotRegisteredFault"/>
+  </wsdl:message>
+  <wsdl:message name="USBSClientFault">
+    <wsdl:part element="tns:USBSClientFault" name="USBSClientFault"/>
+  </wsdl:message>
+  <wsdl:message name="IntegrationTimeoutFault">
+    <wsdl:part element="tns:IntegrationTimeoutFault" name="IntegrationTimeoutFault"/>
+  </wsdl:message>
+  <wsdl:portType name="PushDevicePort">
+    <wsdl:operation name="GetDevices">
+      <wsdl:input name="GetDevicesRequest" message="tns:GetDevicesRequest"/>
+      <wsdl:output name="GetDevicesResponse" message="tns:GetDevicesResponse"/>
+      <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+      <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+      <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+      <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetDevice">
+      <wsdl:input name="SetDeviceRequest" message="tns:SetDeviceRequest"/>
+      <wsdl:output name="SetDeviceResponse" message="tns:SetDeviceResponse"/>
+      <wsdl:fault name="InvalidDeviceTokenFault" message="tns:InvalidDeviceTokenFault"/>
+      <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+      <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+      <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+      <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetPhone">
+      <wsdl:input name="SetPhoneRequest" message="tns:SetPhoneRequest"/>
+      <wsdl:output name="SetPhoneResponse" message="tns:SetPhoneResponse"/>
+      <wsdl:fault name="InvalidPhoneNumberFault" message="tns:InvalidPhoneNumberFault"/>
+      <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+      <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+      <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+      <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecurityToken">
+      <wsdl:input name="UpdateSecurityTokenRequest" message="tns:UpdateSecurityTokenRequest"/>
+      <wsdl:output name="UpdateSecurityTokenResponse" message="tns:UpdateSecurityTokenResponse"/>
+      <wsdl:fault name="InvalidDeviceTokenFault" message="tns:InvalidDeviceTokenFault"/>
+      <wsdl:fault name="DeviceNotRegisteredFault" message="tns:DeviceNotRegisteredFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="SendPushSms">
+      <wsdl:input name="SendPushSmsRequest" message="tns:SendPushSmsRequest"/>
+      <wsdl:output name="SendPushSmsResponse" message="tns:SendPushSmsResponse"/>
+      <wsdl:fault name="ClientNotFoundFault" message="tns:ClientNotFoundFault"/>
+      <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+      <wsdl:fault name="NoActiveDevicesFault" message="tns:NoActiveDevicesFault"/>
+      <wsdl:fault name="USBSClientFault" message="tns:USBSClientFault"/>
+      <wsdl:fault name="IntegrationTimeoutFault" message="tns:IntegrationTimeoutFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceSubscriptions">
+      <wsdl:input name="GetDeviceSubscriptionsRequest" message="tns:GetDeviceSubscriptionsRequest"/>
+      <wsdl:output name="GetDeviceSubscriptionsResponse" message="tns:GetDeviceSubscriptionsResponse"/>
+      <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+      <wsdl:fault name="DeviceNotRegisteredFault" message="tns:DeviceNotRegisteredFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetDeviceSubscriptions">
+      <wsdl:input name="SetDeviceSubscriptionsRequest" message="tns:SetDeviceSubscriptionsRequest"/>
+      <wsdl:output name="SetDeviceSubscriptionsResponse" message="tns:SetDeviceSubscriptionsResponse"/>
+      <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+      <wsdl:fault name="DeviceNotRegisteredFault" message="tns:DeviceNotRegisteredFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetPushServiceState">
+      <wsdl:input name="SetPushServiceStateRequest" message="tns:SetPushServiceStateRequest"/>
+      <wsdl:output name="SetPushServiceStateResponse" message="tns:SetPushServiceStateResponse"/>
+      <wsdl:fault name="ClientNotRegisteredFault" message="tns:ClientNotRegisteredFault"/>
+      <wsdl:fault name="SystemFault" message="tns:SystemFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:input name="GetVersionRequest" message="tns:GetVersionRequest"/>
+      <wsdl:output name="GetVersionResponse" message="tns:GetVersionResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PushDevicePortSoap11" type="tns:PushDevicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetDevices">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetDevicesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDevicesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClientNotFoundFault">
+        <soap:fault use="literal" name="ClientNotFoundFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="ClientNotRegisteredFault">
+        <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="USBSClientFault">
+        <soap:fault use="literal" name="USBSClientFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="IntegrationTimeoutFault">
+        <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetDevice">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SetDeviceRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetDeviceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="InvalidDeviceTokenFault">
+        <soap:fault use="literal" name="InvalidDeviceTokenFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="ClientNotFoundFault">
+        <soap:fault use="literal" name="ClientNotFoundFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="ClientNotRegisteredFault">
+        <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="USBSClientFault">
+        <soap:fault use="literal" name="USBSClientFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="IntegrationTimeoutFault">
+        <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetPhone">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SetPhoneRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetPhoneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="InvalidPhoneNumberFault">
+        <soap:fault use="literal" name="InvalidPhoneNumberFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="ClientNotFoundFault">
+        <soap:fault use="literal" name="ClientNotFoundFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="ClientNotRegisteredFault">
+        <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="USBSClientFault">
+        <soap:fault use="literal" name="USBSClientFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="IntegrationTimeoutFault">
+        <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSecurityToken">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="UpdateSecurityTokenRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateSecurityTokenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="InvalidDeviceTokenFault">
+        <soap:fault use="literal" name="InvalidDeviceTokenFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="DeviceNotRegisteredFault">
+        <soap:fault use="literal" name="DeviceNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendPushSms">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SendPushSmsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SendPushSmsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClientNotFoundFault">
+        <soap:fault use="literal" name="ClientNotFoundFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="ClientNotRegisteredFault">
+        <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="NoActiveDevicesFault">
+        <soap:fault use="literal" name="NoActiveDevicesFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="USBSClientFault">
+        <soap:fault use="literal" name="USBSClientFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="IntegrationTimeoutFault">
+        <soap:fault use="literal" name="IntegrationTimeoutFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceSubscriptions">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetDeviceSubscriptionsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetDeviceSubscriptionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClientNotRegisteredFault">
+        <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="DeviceNotRegisteredFault">
+        <soap:fault use="literal" name="DeviceNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetDeviceSubscriptions">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SetDeviceSubscriptionsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetDeviceSubscriptionsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClientNotRegisteredFault">
+        <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="DeviceNotRegisteredFault">
+        <soap:fault use="literal" name="DeviceNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetPushServiceState">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SetPushServiceStateRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetPushServiceStateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ClientNotRegisteredFault">
+        <soap:fault use="literal" name="ClientNotRegisteredFault"/>
+      </wsdl:fault>
+      <wsdl:fault name="SystemFault">
+        <soap:fault use="literal" name="SystemFault"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetVersionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetVersionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PushDeviceService">
+    <wsdl:port binding="tns:PushDevicePortSoap11" name="PushDevicePortSoap11">
+      <soap:address location="http://127.0.0.1:8707/services/PushDeviceService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/Users/aplana/Documents/1.%20idea-workspace/spring_soap_stub/PushServiceStub/src/main/resources/PushDeviceService.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://mfms.ru/mfmsgate/pushdev" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pds="http://mfms.ru/mfmsgate/pushdev">
+  <complexType name="DeviceInfo">
+    <sequence>
+      <element name="deviceName" type="xsd:string"/>
+      <element name="deviceUID" type="xsd:string"/>
+      <element name="deviceToken" type="xsd:string"/>
+      <element name="isPushActive" type="xsd:boolean"/>
+      <element name="isMain" type="xsd:boolean" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  <element name="GetDevicesRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="systemId" type="xsd:string"/>
+        <element name="clientId" type="xsd:string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="GetDevicesResponse">
+    <complexType>
+      <sequence>
+        <element name="devices" type="pds:DeviceInfo" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetDeviceRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="systemId" type="xsd:string"/>
+        <element name="clientId" type="xsd:string"/>
+        <element name="device" type="pds:DeviceInfo"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetDeviceResponse">
+    <complexType>
+      <sequence>
+        <element name="devices" type="pds:DeviceInfo" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetPhoneRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="systemId" type="xsd:string"/>
+        <element name="clientId" type="xsd:string"/>
+        <element name="phoneNumber" type="xsd:string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetPhoneResponse"/>
+  <element name="UpdateSecurityTokenRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="deviceUID" type="xsd:string"/>
+        <element name="deviceToken" type="xsd:string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="UpdateSecurityTokenResponse"/>
+  <element name="SendPushSmsRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="systemId" type="xsd:string"/>
+        <element name="clientId" type="xsd:string"/>
+        <element name="text" type="xsd:string"/>
+        <element name="messageType" type="xsd:string" minOccurs="0"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SendPushSmsResponse"/>
+  <element name="GetVersionRequest"/>
+  <element name="GetVersionResponse">
+    <complexType>
+      <sequence>
+        <element name="version" type="xsd:string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetPushServiceStateRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="systemId" type="xsd:string"/>
+        <element name="clientId" type="xsd:string"/>
+        <element name="isPushEnabled" type="xsd:boolean"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetPushServiceStateResponse"/>
+  <element name="GetDeviceSubscriptionsRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="systemId" type="xsd:string"/>
+        <element name="clientId" type="xsd:string"/>
+        <element name="deviceUID" type="xsd:string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="GetDeviceSubscriptionsResponse">
+    <complexType>
+      <sequence>
+        <!--список типов сообщений, на которые подписан пользователь-->
+        <element name="messageTypeCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetDeviceSubscriptionsRequest">
+    <complexType>
+      <sequence>
+        <element name="correlationId" type="xsd:string"/>
+        <element name="systemId" type="xsd:string"/>
+        <element name="clientId" type="xsd:string"/>
+        <element name="deviceUID" type="xsd:string"/>
+        <!--список типов сообщений, на которые подписан пользователь-->
+        <element name="messageTypeCodes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="SetDeviceSubscriptionsResponse"/>
+  <element name="SystemFault" type="pds:SystemFaultType"/>
+  <complexType name="SystemFaultType">
+    <sequence>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="InvalidDeviceTokenFault" type="pds:InvalidDeviceTokenFaultType"/>
+  <complexType name="InvalidDeviceTokenFaultType">
+    <sequence>
+      <element name="systemId" type="xsd:string"/>
+      <element name="clientId" type="xsd:string"/>
+      <element name="token" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="InvalidPhoneNumberFault" type="pds:InvalidPhoneNumberFaultType"/>
+  <complexType name="InvalidPhoneNumberFaultType">
+    <sequence>
+      <element name="systemId" type="xsd:string"/>
+      <element name="clientId" type="xsd:string"/>
+      <element name="phoneNumber" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="ClientNotFoundFault" type="pds:ClientNotFoundFaultType"/>
+  <complexType name="ClientNotFoundFaultType">
+    <sequence>
+      <element name="systemId" type="xsd:string"/>
+      <element name="clientId" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="ClientNotRegisteredFault" type="pds:ClientNotRegisteredFaultType"/>
+  <complexType name="ClientNotRegisteredFaultType">
+    <sequence>
+      <element name="systemId" type="xsd:string"/>
+      <element name="clientId" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="DuplicateCrossReferenceFault" type="pds:DuplicateCrossReferenceFaultType"/>
+  <complexType name="DuplicateCrossReferenceFaultType">
+    <sequence>
+      <element name="systemId" type="xsd:string"/>
+      <element name="clientId" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="NoActiveDevicesFault" type="pds:NoActiveDevicesFaultType"/>
+  <complexType name="NoActiveDevicesFaultType">
+    <sequence>
+      <element name="systemId" type="xsd:string"/>
+      <element name="clientId" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="DeviceNotRegisteredFault" type="pds:DeviceNotRegisteredFaultType"/>
+  <complexType name="DeviceNotRegisteredFaultType">
+    <sequence>
+      <element name="deviceUID" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="USBSClientFault" type="pds:USBSClientFaultType"/>
+  <complexType name="USBSClientFaultType">
+    <sequence>
+      <element name="systemId" type="xsd:string"/>
+      <element name="clientId" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <element name="IntegrationTimeoutFault" type="pds:IntegrationTimeoutFaultType"/>
+  <complexType name="IntegrationTimeoutFaultType">
+    <sequence>
+      <element name="message" type="xsd:string"/>
+    </sequence>
+  </complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8707/services/PushDeviceService</con:endpoint></con:endpoints><con:operation id="f506dd60-8561-432a-90d7-4513b7ba784c" isOneWay="false" action="" name="GetDevices" bindingOperationName="GetDevices" type="Request-Response" outputName="GetDevicesResponse" inputName="GetDevicesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="032b9fcd-120b-40a0-8e66-f76e162d4acb" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:GetDevicesRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:systemId>?</pus:systemId>
+         <pus:clientId>?</pus:clientId>
+      </pus:GetDevicesRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/GetDevicesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="7f0a1ed5-b26e-41b8-8e3b-cd1b7b0a0200" isOneWay="false" action="" name="GetDeviceSubscriptions" bindingOperationName="GetDeviceSubscriptions" type="Request-Response" outputName="GetDeviceSubscriptionsResponse" inputName="GetDeviceSubscriptionsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="69b39f54-3b0c-4f76-a9a4-9c1b9f5aa162" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:GetDeviceSubscriptionsRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:systemId>?</pus:systemId>
+         <pus:clientId>?</pus:clientId>
+         <pus:deviceUID>?</pus:deviceUID>
+      </pus:GetDeviceSubscriptionsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/GetDeviceSubscriptionsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="59d6c64a-150a-4300-8f7f-35fe72511bdb" isOneWay="false" action="" name="GetVersion" bindingOperationName="GetVersion" type="Request-Response" outputName="GetVersionResponse" inputName="GetVersionRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0af57218-4a08-4328-b437-9584a3f06a17" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8707/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:GetVersionRequest>?</pus:GetVersionRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/GetVersionRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2bb2320c-6fc8-47c8-807b-a81659b323da" isOneWay="false" action="" name="SendPushSms" bindingOperationName="SendPushSms" type="Request-Response" outputName="SendPushSmsResponse" inputName="SendPushSmsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f2caecc1-c6d0-49c1-bb78-acca0d53cb37" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8707/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:SendPushSmsRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:systemId>?</pus:systemId>
+         <pus:clientId>?</pus:clientId>
+         <pus:text>?</pus:text>
+         <!--Optional:-->
+         <pus:messageType>?</pus:messageType>
+      </pus:SendPushSmsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/SendPushSmsRequest"/></con:call></con:operation><con:operation id="0e6b4ff6-5496-4b20-bff2-23e4ccdfef0d" isOneWay="false" action="" name="SetDevice" bindingOperationName="SetDevice" type="Request-Response" outputName="SetDeviceResponse" inputName="SetDeviceRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1c8447f3-df8f-4529-8e39-e9b9aa5d22aa" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8707/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:SetDeviceRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:systemId>?</pus:systemId>
+         <pus:clientId>?</pus:clientId>
+         <pus:device>
+            <pus:deviceName>?</pus:deviceName>
+            <pus:deviceUID>?</pus:deviceUID>
+            <pus:deviceToken>?</pus:deviceToken>
+            <pus:isPushActive>?</pus:isPushActive>
+            <!--Optional:-->
+            <pus:isMain>?</pus:isMain>
+         </pus:device>
+      </pus:SetDeviceRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/SetDeviceRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="786ebea0-ab52-4852-8968-db1fe5da98d1" isOneWay="false" action="" name="SetDeviceSubscriptions" bindingOperationName="SetDeviceSubscriptions" type="Request-Response" outputName="SetDeviceSubscriptionsResponse" inputName="SetDeviceSubscriptionsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="70eddf99-a108-4d9e-a284-04904b9e6cf7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8707/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:SetDeviceSubscriptionsRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:systemId>?</pus:systemId>
+         <pus:clientId>?</pus:clientId>
+         <pus:deviceUID>?</pus:deviceUID>
+         <!--Zero or more repetitions:-->
+         <pus:messageTypeCodes>?</pus:messageTypeCodes>
+      </pus:SetDeviceSubscriptionsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/SetDeviceSubscriptionsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c120fc96-3ca9-43e2-b08e-c2c794f87a44" isOneWay="false" action="" name="SetPhone" bindingOperationName="SetPhone" type="Request-Response" outputName="SetPhoneResponse" inputName="SetPhoneRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="938a9733-19cc-4927-af2f-8c12b82e839e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8707/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:SetPhoneRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:systemId>?</pus:systemId>
+         <pus:clientId>?</pus:clientId>
+         <pus:phoneNumber>?</pus:phoneNumber>
+      </pus:SetPhoneRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/SetPhoneRequest"/></con:call></con:operation><con:operation id="79ba5d21-3d29-467d-9abc-e03837f340a6" isOneWay="false" action="" name="SetPushServiceState" bindingOperationName="SetPushServiceState" type="Request-Response" outputName="SetPushServiceStateResponse" inputName="SetPushServiceStateRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fd80932e-84c1-4333-a96c-c5e796454f92" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8707/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:SetPushServiceStateRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:systemId>?</pus:systemId>
+         <pus:clientId>?</pus:clientId>
+         <pus:isPushEnabled>?</pus:isPushEnabled>
+      </pus:SetPushServiceStateRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/SetPushServiceStateRequest"/></con:call></con:operation><con:operation id="8068326d-3313-4f78-b021-586edcdfdebf" isOneWay="false" action="" name="UpdateSecurityToken" bindingOperationName="UpdateSecurityToken" type="Request-Response" outputName="UpdateSecurityTokenResponse" inputName="UpdateSecurityTokenRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="066928aa-a30d-4ccb-89d6-2aac73d0ccdd" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/services/PushDeviceService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pus="http://mfms.ru/mfmsgate/pushdev">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pus:UpdateSecurityTokenRequest>
+         <pus:correlationId>?</pus:correlationId>
+         <pus:deviceUID>?</pus:deviceUID>
+         <pus:deviceToken>?</pus:deviceToken>
+      </pus:UpdateSecurityTokenRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://mfms.ru/mfmsgate/pushdev/PushDevicePort/UpdateSecurityTokenRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
