@@ -19,7 +19,7 @@ public class PushServiceEndpoint {
 
     MeterRegistry registry = new SimpleMeterRegistry();
     Counter counter = registry.counter("requestCount");
-    private static Logger logger = LoggerFactory.getLogger("application");
+//    private static Logger logger = LoggerFactory.getLogger("application");
 
     private static final String NAMESPACE_URI = "http://mfms.ru/mfmsgate/pushdev";
 
@@ -38,7 +38,7 @@ public class PushServiceEndpoint {
         getDeviceSubscriptionsResponse.getMessageTypeCodes().add("otp-code-united");
         getDeviceSubscriptionsResponse.getMessageTypeCodes().add("transaction");
 
-        logger.debug(getDeviceSubscriptionsResponse.toString());
+//        logger.debug(getDeviceSubscriptionsResponse.toString());
 
         return getDeviceSubscriptionsResponse;
     }
@@ -83,7 +83,7 @@ public class PushServiceEndpoint {
 //            Metrics.counter("UpdateSecurityTokenRequest").increment(1.0);
 //                });
 
-        logger.debug(updateSecurityTokenResponse.toString());
+//        logger.debug(updateSecurityTokenResponse.toString());
         return updateSecurityTokenResponse;
     }
 }
