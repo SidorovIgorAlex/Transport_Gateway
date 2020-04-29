@@ -14,6 +14,9 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import ru.mfms.mfmsgate.pushdev.*;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
+
 @Endpoint
 public class PushServiceEndpoint {
 
@@ -74,16 +77,20 @@ public class PushServiceEndpoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "UpdateSecurityTokenRequest")
     @ResponsePayload
-    public UpdateSecurityTokenResponse getUpdateSecurityTokenResponse (@RequestPayload UpdateSecurityTokenRequest updateSecurityTokenRequest)
+    public JAXBElement<UpdateSecurityTokenResponse> getUpdateSecurityTokenResponse (@RequestPayload UpdateSecurityTokenRequest updateSecurityTokenRequest)
     {
 
         UpdateSecurityTokenResponse updateSecurityTokenResponse = new UpdateSecurityTokenResponse();
+
+        QName qName = new QName("getUpdateSecurityTokenResponse");
+
+        JAXBElement<UpdateSecurityTokenResponse> jaxbElement = new JAXBElement<>(qName, UpdateSecurityTokenResponse.class, updateSecurityTokenResponse);
 
 //        Metrics.timer("response.timer.UpdateSecurityTokenRequest").record(() -> {
 //            Metrics.counter("UpdateSecurityTokenRequest").increment(1.0);
 //                });
 
 //        logger.debug(updateSecurityTokenResponse.toString());
-        return updateSecurityTokenResponse;
+        return jaxbElement;
     }
 }
